@@ -57,7 +57,7 @@ function saveCacheToStorage() {
 function createNsFromStorage() {
     const keys = JSON.parse(
         localStorage.getItem('$keys')
-    )
+    ) || []
 
     keys.forEach(k => {
         Namespace.from(
