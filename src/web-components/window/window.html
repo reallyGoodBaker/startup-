@@ -1,0 +1,83 @@
+<style>
+    .outer {
+        position: absolute;
+        min-width: 100px;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--secondaryDeepDark);
+        color: #fff;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        overflow: hidden;
+        pointer-events: all;
+        user-select: none;
+        outline: none;
+        box-sizing: content-box;
+        box-shadow: 0px 2px 8px rgba(0,0,0,0.5);
+        animation: fadeIn 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .outer.focus {
+        box-shadow: 0px 4px 16px rgba(0,0,0,1);
+        z-index: 1;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(80px) rotate3d(1, 0, 0, 30deg);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) rotate3d(1, 0, 0, 0);
+        }
+    }
+
+    #title {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 12px;
+        font-size: 1rem;
+    }
+
+    #container {
+        max-width: 70vw;
+        max-height: 70vh;
+    }
+
+    .title-bar {
+        height: 40px;
+        background-color: var(--secondaryDark);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--secondaryLight);
+    }
+
+    #btn {
+        width: 40px;
+        height: 32px;
+        text-align: center;
+        line-height: 32px;
+        margin-right: 8px;
+        border-radius: 8px;
+    }
+
+    #btn:hover {
+        background-color: var(--secondaryDeepDark);
+    }
+
+    #btn:active {
+        opacity: 0.5;
+    }
+</style>
+
+<div class="outer">
+    <div class="title-bar">
+        <div id="title"></div>
+        <div id="btn">×</div>
+    </div>
+    <div id="container"></div>
+</div>

@@ -1,0 +1,65 @@
+<style>
+    #container {
+        width: 400px;
+        margin: 24px;
+        font-size: 1rem;
+    }
+
+    .row, .col {
+        display: flex;
+        align-items: center;
+    }
+
+    .row {
+        width: 100%;
+        justify-content: space-between;
+        margin: 4px 0px;
+    }
+
+    .col {
+        height: 100%;
+        margin: 0px 4px;
+        flex-direction: column;
+    }
+
+    .btn-group {
+        margin: 20px 0px 0px 0px;
+        height: 32px;
+        flex-direction: row-reverse;
+    }
+
+    .btn {
+        font-size: 1rem;
+        background-color: #2a2a2a;
+        padding: 8px 16px;
+        user-select: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .btn:hover {
+        filter: brightness(1.1);
+    }
+
+    .btn:active {
+        filter: brightness(0.9);
+    }
+</style>
+
+<div id="container" class="col">
+    <div class="row">
+        快捷方式名称
+        <r-input id="name"></r-input>
+    </div>
+    <div class="row">
+        图标链接
+        <r-input id="ico"></r-input>
+    </div>
+    <div class="row">
+        快捷方式链接
+        <r-input id="link"></r-input>
+    </div>
+    <div class="row btn-group">
+        <r-btn>确认</r-btn>
+    </div>
+</div>

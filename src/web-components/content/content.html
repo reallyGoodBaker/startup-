@@ -1,0 +1,108 @@
+<style>
+    #container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .search {
+        position: relative;
+        width: 500px;
+        height: 48px;
+        backdrop-filter: blur(8px) grayscale(40%) brightness(180%);
+        border-radius: 24px;
+        box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+    }
+
+    #search {
+        font-size: large;
+        padding-left: 48px;
+        padding-right: 20px;
+        display: block;
+        outline: none;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: 0px;
+        border-radius: 24px;
+        transition: background-color 0.2s;
+    }
+
+    #search:focus {
+        background-color: var(--primaryLight)
+    }
+
+    #time {
+        user-select: none;
+        margin-bottom: 36px;
+        margin-top: 48px;
+        cursor: pointer;
+        color: var(--primaryLight);
+        text-align: center;
+        font-size: 4rem;
+        text-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    #time > div {
+        font-size: medium;
+        text-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    #search-engine-switch {
+        position: absolute;
+        text-align: center;
+        line-height: 40px;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        top: 6px;
+        left: 8px;
+        cursor: pointer;
+        user-select: none;
+        box-sizing: border-box;
+        transition: all 0.2s;
+    }
+
+    #search-engine-icon {
+        width: 100%;
+        height: 100%;
+        background-image: url(/favicon.ico);
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: center;
+        filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+    }
+
+    #search-engine-switch:hover {
+        background-color: var(--primaryAccent);
+    }
+
+    #search-engine-switch:active {
+        background-color: var(--primaryLight);
+        transform: scale(0.9);
+    }
+
+    #shortcut-grid {
+        width: 80%;
+        height: 300px;
+    }
+    
+</style>
+
+<div id="container">
+    <div>
+        <div id="time"></div>
+        <div class="search">
+            <div id="search-engine-switch">
+                <div id="search-engine-icon"></div>
+            </div>
+            <input autocomplete="off" type="search" id="search">
+            <r-sug id="sug"></r-sug>
+        </div>
+    </div>
+    <div id="shortcut-grid"></div>
+</div>
