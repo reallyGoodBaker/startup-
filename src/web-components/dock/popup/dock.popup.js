@@ -1,4 +1,5 @@
 import {ViewImplementor} from '../../implementor.js'
+import {Toast} from '../../scaffold/toast/toast.js'
 
 
 export class DockPopupContent extends ViewImplementor {
@@ -8,5 +9,9 @@ export class DockPopupContent extends ViewImplementor {
 
     onViewImpl() {
         this.shadowRoot.querySelector('#name')
+
+        this.shadowRoot.querySelector('#btn').onclick = () => {
+            Toast.makeToast('功能暂未完成')
+        }
     }
 }

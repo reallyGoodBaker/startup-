@@ -1,0 +1,90 @@
+<style>
+    #container {
+        overflow: hidden;
+        pointer-events: all;
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 400px;
+        height: 58px;
+        background-color: var(--tertiaryAccent);
+        border-radius: 8px;
+        color: var(--tertiaryDeepDark);
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-rows: 1fr;
+        grid-template-columns: 48px 1fr 72px;
+        grid-template-areas: "leading content ending";
+
+        transform: translateY(calc(-100% - 16px));
+        box-shadow: 0px 0px 0px rgba(0,0,0,0.4);
+
+        transition: transform 0.2s;
+    }
+
+    #container.show {
+        transform: translateY(0px);
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .btn {
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        line-height: 32px;
+        font-size: large;
+        user-select: none;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: all 0.1s;
+        font-weight: bold;
+    }
+    .btn:hover {
+        background-color: rgba(0,0,0,0.1);
+    }
+    .btn:active {
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    .leading {
+        width: 100%;
+        height: 100%;
+        grid-area: leading;
+        background-image: url(/favicon.ico);
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .content {
+        display: flex;
+        width: calc(100% - 16px);
+        height: 100%;
+        margin-left: 16px;
+        font-size: medium;
+        grid-area: content;
+        align-items: center;
+    }
+
+    .ending {
+        grid-area: ending;
+        width: calc(100% - 8px);
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 8px;
+    }
+</style>
+
+<div id="container" class="">
+    <div class="leading"></div>
+    <div class="ending">
+        <div class="btn" id="action">⪫</div>
+        <div class="btn" id="close">⨉</div>
+    </div>
+    <div class="content" id="content">
+        
+    </div>
+</div>
