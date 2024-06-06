@@ -17,16 +17,16 @@ export class SearchSug extends ViewImplementor {
             }
         })
 
-        Service.register('suggest.baidu', sug => {
-            sug = sug.data.g
-            
+        Service.register('suggest.bing', sug => {
+            sug = sug.data
+
             //无搜索建议, 清除所有项
             if (!sug) return container.innerHTML = ''
 
             //有搜索建议
             let inner = ''
             sug.forEach((item, i) => {
-                inner += `<div index="${i}">${item.q}</div>`
+                inner += `<div index="${i}">${item.Txt}</div>`
             })
             container.innerHTML = inner
 

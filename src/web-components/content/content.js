@@ -6,10 +6,10 @@ function getTimeHTML() {
 }
 
 import {Service} from '../../utils/service.js'
-import {BaiduSuggestion} from '../../utils/sug/sug-baidu.js'
+import {BingSuggestion} from '../../utils/sug/sug-bing.js'
 import {throttle} from '../../utils/throttle.js'
 
-Service.startService('suggest.baidu', BaiduSuggestion)
+Service.startService('suggest.bing', BingSuggestion)
 
 import {SearchSug} from './sug/content.sug.js'
 import {selectLoop, getSe, search as _s} from './se.js'
@@ -41,7 +41,7 @@ export class Content extends ViewImplementor {
         })
 
         search.addEventListener('input', throttle(() => {
-            Service.postMessage('suggest.baidu', search.value)
+            Service.postMessage('suggest.bing', search.value)
         }, 100))
         window.addEventListener('keydown', ev => {
             if (ev.key === 'Enter' && shadow.activeElement === search) {
@@ -62,7 +62,8 @@ export class Content extends ViewImplementor {
 
         let shouldDisplay = false
         document.addEventListener('mousedown', ev => {
-            if (ev.path.includes(search) || ev.path.includes(sug)) {
+            const path = ev.composedPath()
+            if (path.includes(search) || path.includes(sug)) {
                 shouldDisplay = true
             } else {
                 shouldDisplay = false

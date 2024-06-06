@@ -148,7 +148,7 @@ export class DisplayWindow extends ViewImplementor {
 }
 
 window.addEventListener('mousedown', ev => {
-    setFocus(getFirstWin(ev.path))
+    setFocus(getFirstWin(ev.composedPath()))
 })
 
 function clearFocus() {
